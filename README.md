@@ -1,5 +1,5 @@
-# NU SST CSCI 151 Course Exercises Solutions
-This repository stores solutions to most of the CSCI 151 course exercises.
+# NU SST CSCI 151 Exercises
+This repository stores solutions to most of the CSCI 151 course exercises. [solving](in progress)
 
 ## Downloading this repository
 This can be done in several ways:
@@ -10,12 +10,11 @@ This can be done in several ways:
   ```
   git clone https://github.com/kirusfg/csci151.git
   ```
-
 ## Compiling and running the programs
 ### Linux
 To build and test the solutions in Linux, you have to compile them using a **gcc** compiler:
 ```
-gcc lessonX.Y.c -o programName.out
+gcc lessonX.Y.c -o programName.out -lm
 ```
 To run the program after compiling it, simply use:
 ```
