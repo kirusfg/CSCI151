@@ -21,3 +21,5 @@ To run the program after compiling it, simply use:
 ./programName.out
 ```
 ### Windows
+
+(https://img.shields.io/badge/solving-in%20progress-yellow.svg)
