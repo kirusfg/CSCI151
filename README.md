@@ -21,5 +21,5 @@ To run the program after compiling it, simply use:
 ./programName.out
 ```
 ### Windows
-
+[![Solving](https://img.shields.io/badge/solving-in%20progress-yellow.svg)]()
 (https://img.shields.io/badge/solving-in%20progress-yellow.svg)
