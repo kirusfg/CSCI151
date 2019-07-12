@@ -44,7 +44,7 @@ int main (void) {
     while(!feof(story)){
         ch = getc(story);
 
-        if(ch != EOF){
+        if((ch != EOF) && (ch != '$')){
             putc(ch, outfile);
         }
 
