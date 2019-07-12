@@ -1,5 +1,5 @@
 # NU SST CSCI 151 Exercises
-This repository stores solutions to most of the CSCI 151 course exercises. [solving](in progress)
+This repository stores solutions to most of the CSCI 151 course exercises. [![Solving](https://img.shields.io/badge/solving-in%20progress-yellow.svg)]
 
 ## Downloading this repository
 This can be done in several ways:
@@ -21,5 +21,3 @@ To run the program after compiling it, simply use:
 ./programName.out
 ```
 ### Windows
-[![Solving](https://img.shields.io/badge/solving-in%20progress-yellow.svg)]()
-(https://img.shields.io/badge/solving-in%20progress-yellow.svg)
