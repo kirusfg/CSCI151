@@ -15,10 +15,10 @@
 #include <math.h>
 #include <float.h>
 
-long long int factorial(int number){
+long long int factorial(int number) {
     long long int factorial = 1;
 
-    if(number < 0){
+    if (number < 0) {
         return 0;
     } else {
         for(int i = 1; i <= number; i++){
@@ -28,11 +28,10 @@ long long int factorial(int number){
     }
 }
 
-int main(void){
+int main(void) {
     double x, sinX;
 
     printf("Enter x: ");
-
     scanf("%lf", &x);
 
     sinX = x - (pow(x, 3) / factorial(3)) + (pow(x, 5) / factorial(5));

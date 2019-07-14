@@ -13,7 +13,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int a = 2147483647;
     int b = 2147483648;
     int c = 2147483649;

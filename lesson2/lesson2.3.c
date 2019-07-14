@@ -13,7 +13,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     printf("H   H EEEEE L     L      OOO       W   W  OOO  RRRR  L     DDDD\n");
     printf("H   H E     L     L     O   O      W W W O   O R   R L     D   D\n");
     printf("HHHHH EEEEE L     L     O   O      W W W O   O RRRR  L     D   D\n");

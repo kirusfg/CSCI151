@@ -15,14 +15,14 @@
 #include <math.h>
 #include <float.h>
 
-int main (void) {
+int main(void) {
 
     int n, divisor;
 
     scanf("%d", &n);
 
-    for(divisor = 2; divisor < n; divisor++){
-        if(n % divisor == 0){
+    for (divisor = 2; divisor < n; divisor++) {
+        if (n % divisor == 0) {
             printf("%d ", divisor);
         }
     }

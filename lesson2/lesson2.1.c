@@ -15,7 +15,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     double l, w, h, volume, surfaceArea;
 
     printf("Enter values for the length, width, and height of a container: ");

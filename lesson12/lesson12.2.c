@@ -17,11 +17,11 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int array[20];
     int i;
 
-    for(i = 0; i < 20; i++){
+    for (i = 0; i < 20; i++) {
         array[i] = rand() % 50 + 50;
         printf("array[%d] = %d\n", i, array[i]);
     }

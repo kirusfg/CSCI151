@@ -20,8 +20,8 @@ int main(void){
     int row;
     double x, number;
 
-    for(row = 1, x = 0; row <= 40; row++, x += M_PI / 20){
-        for(number = ((sin(x) * 10) + 10); number >= 0; number--){
+    for (row = 1, x = 0; row <= 40; row++, x += M_PI / 20) {
+        for (number = ((sin(x) * 10) + 10); number >= 0; number--) {
             printf("*");
         }
         printf("\n");

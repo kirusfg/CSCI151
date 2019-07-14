@@ -15,7 +15,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int a, b, c, counter;
 
     a = 0;
@@ -24,7 +24,7 @@ int main(void){
 
     counter = 1;
 
-    while(counter <= 20){
+    while (counter <= 20) {
         printf("%d ", a);
         a = b;
         b = c;

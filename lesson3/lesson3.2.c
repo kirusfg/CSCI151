@@ -19,7 +19,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     double radius, height, surfaceArea, baseArea, volume;
 
     printf("Enter value of radius and height of a cone: ");

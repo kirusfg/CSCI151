@@ -16,13 +16,13 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int n, i, factor;
     double x, nthValue, xtoN, sum;
 
     scanf("%lf %i", &x, &n);
 
-    for(i = 0, factor = 1, xtoN = 1; i <= n; i++, factor *= i, xtoN *= x){
+    for (i = 0, factor = 1, xtoN = 1; i <= n; i++, factor *= i, xtoN *= x) {
         nthValue = xtoN / factor;
         sum += nthValue;
     }

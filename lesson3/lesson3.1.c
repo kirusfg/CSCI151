@@ -17,7 +17,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     double meters, centimeters, myriameters, inches, miles, furlongs;
 
     printf("Enter value of length in meters: ");

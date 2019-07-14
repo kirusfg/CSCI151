@@ -15,7 +15,7 @@
 #include <math.h>
 #include <float.h>
 
-int main (void) {
+int main(void) {
 
     int n;
 

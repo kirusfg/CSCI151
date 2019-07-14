@@ -20,14 +20,14 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int row, plus, star;
 
-    for(row = 0; row <= 5; row++){
-        for(plus = 5 - row; plus > 0; plus--){
+    for (row = 0; row <= 5; row++) {
+        for (plus = 5 - row; plus > 0; plus--) {
             printf("+");
         }
-        for(star = row; star > 0; star--){
+        for (star = row; star > 0; star--) {
             printf("*");
         }
         printf("\n");

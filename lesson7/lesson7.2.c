@@ -15,7 +15,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int n, k, counter;
 
     scanf("%d", &n);
@@ -23,7 +23,7 @@ int main(void){
     counter = 0;
     k = 1;
 
-    while(n >= k){
+    while (n >= k) {
         k *= 2;
         counter++;
     }

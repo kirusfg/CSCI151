@@ -17,16 +17,16 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int n;
     double x, result = 0, xtoN = 1;
 
     scanf("%lf %i", &x, &n);
 
-    for(int i = 1; i <= n; i++){
+    for (int i = 1; i <= n; i++) {
         xtoN = 1;
         //Evaluating each x^n
-        for(int j = i; j >= 1; j--){
+        for (int j = i; j >= 1; j--) {
             xtoN *= x;
         }
         //Adding each x^n to the result

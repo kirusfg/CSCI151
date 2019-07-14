@@ -14,7 +14,7 @@
 #include <math.h>
 #include <float.h>
 
-int main (void) {
+int main(void) {
 
     int counter = 0;
     char ch;
@@ -22,7 +22,7 @@ int main (void) {
     do {
         ch = getchar();
 
-        if(ch == 'a'){
+        if (ch == 'a') {
             counter++;
         }
     } while (ch != '\n');

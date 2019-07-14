@@ -15,21 +15,21 @@
 #include <math.h>
 #include <float.h>
 
-unsigned long long factorial(int x){
-    if (x >= 1){
+unsigned long long factorial(int x) {
+    if (x >= 1) {
         return x * factorial(x - 1);
     } else {
         return 1;
     }
 }
 
-int main (void) {
+int main(void) {
     int arrayLength = 10;
 
     int array[arrayLength];
     int i;
 
-    for(i = 0; i < arrayLength; i++){
+    for (i = 0; i < arrayLength; i++) {
         array[i] = factorial(i);
         printf("array[%d] = %d\n", i, array[i]);
     }
@@ -39,13 +39,13 @@ int main (void) {
 
 
 /*  Second solution without using a separate factorial() function
-int main(void){
+int main(void) {
     int i, j, factorial;
     int array[10];
 
-    for(i = 0; i < 10; i++){
+    for (i = 0; i < 10; i++) {
         factorial = 1;
-        for(j = 1; j <= i; j++){
+        for (j = 1; j <= i; j++) {
             factorial *= j;
         }
         array[i] = factorial;

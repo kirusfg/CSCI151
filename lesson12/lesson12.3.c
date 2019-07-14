@@ -20,7 +20,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int array[20];
     int i, min, max, sum, avg;
 
@@ -29,24 +29,24 @@ int main(void){
     sum = 0;
     avg = 0;
 
-    for(i = 0; i < 20; i++){
+    for (i = 0; i < 20; i++) {
         array[i] = rand() % 50 + 50;
         printf("array[%d] = %d\n", i, array[i]);
     }
 
-    for(i = 0; i < 20; i++){
-        if (array[i] <= min){
+    for (i = 0; i < 20; i++) {
+        if (array[i] <= min) {
             min = array[i];
         }
     }
 
-    for(i = 0; i < 20; i++){
-        if (array[i] >= max){
+    for (i = 0; i < 20; i++) {
+        if (array[i] >= max) {
             max = array[i];
         }
     }
 
-    for(i = 0; i < 20; i++){
+    for (i = 0; i < 20; i++) {
         sum += array[i];
     }
 

@@ -16,13 +16,13 @@
 #include <math.h>
 #include <float.h>
 
-int main (void) {
+int main(void) {
     char ch;
 
     do {
         ch = getchar();
 
-        if((ch >= 97) && (ch <= 122)){
+        if ((ch >= 97) && (ch <= 122)) {
             printf("%c", ch - 32);
         } else {
             printf("%c", ch);

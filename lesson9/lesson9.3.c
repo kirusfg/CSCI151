@@ -19,7 +19,7 @@
 #include <math.h>
 #include <float.h>
 
-int main (void) {
+int main(void) {
 
     int d;
 
@@ -28,7 +28,7 @@ int main (void) {
     printf("It is ");
 
     //Day of the week
-    switch(d % 7){
+    switch (d % 7) {
         case 1:
             printf("Monday");
             break;
@@ -55,29 +55,29 @@ int main (void) {
     printf(", ");
 
     //Month and day
-    if((d > 0) && (d <= 31)){
+    if ((d > 0) && (d <= 31)) {
         printf("January %d\n", d);
-    } else if((d > 31) && (d <= 60)){
+    } else if ((d > 31) && (d <= 60)) {
         printf("January %d\n", d - 31);
-    } else if((d > 60) && (d <= 91)){
+    } else if ((d > 60) && (d <= 91)) {
         printf("March %d\n", d - 60);
-    } else if((d > 91) && (d <= 121)){
+    } else if ((d > 91) && (d <= 121)) {
         printf("April %d\n", d - 91);
-    } else if((d > 121) && (d <= 152)){
+    } else if ((d > 121) && (d <= 152)) {
         printf("May %d\n", d - 121);
-    } else if((d > 152) && (d <= 182)){
+    } else if ((d > 152) && (d <= 182)) {
         printf("June %d\n", d - 152);
-    } else if((d > 182) && (d <= 213)){
+    } else if ((d > 182) && (d <= 213)) {
         printf("July %d\n", d - 182);
-    } else if((d > 213) && (d <= 244)){
+    } else if ((d > 213) && (d <= 244)) {
         printf("August %d\n", d - 213);
-    } else if((d > 244) && (d <= 274)){
+    } else if ((d > 244) && (d <= 274)) {
         printf("September %d\n", d - 244);
-    } else if((d > 274) && (d <= 305)){
+    } else if ((d > 274) && (d <= 305)) {
         printf("October %d\n", d - 274);
-    } else if((d > 305) && (d <= 335)){
+    } else if ((d > 305) && (d <= 335)) {
         printf("November %d\n", d - 305);
-    } else if((d > 335) && (d <= 366)){
+    } else if ((d > 335) && (d <= 366)) {
         printf("December %d\n", d - 335);
     }
 

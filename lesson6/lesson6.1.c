@@ -17,13 +17,13 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int c, f;
 
     printf("Celcius   Fahrenheit\n");
     printf("--------------------\n");
 
-    for(c = -50; c <= 40; c += 10){
+    for (c = -50; c <= 40; c += 10) {
         f = c * 1.8 + 32;
         printf("%-10i%-10i\n", c, f);
     }

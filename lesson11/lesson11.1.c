@@ -16,7 +16,7 @@
 #include <math.h>
 #include <float.h>
 
-int main (void) {
+int main(void) {
     FILE *infile;
     FILE *outfile;
 
@@ -33,13 +33,13 @@ int main (void) {
     infile = fopen(infileName, "r");
     outfile = fopen(outfileName, "w");
 
-    if(infile == NULL){
+    if (infile == NULL) {
         printf("Error opening input file %s\n", infileName);
-    } else if(outfile == NULL) {
+    } else if (outfile == NULL) {
         printf("Error opening output file %s\n", outfileName);
     }
 
-    while(!feof(infile)){
+    while (!feof(infile)) {
         ch = getc(infile);
         fprintf(outfile, "%c", ch);
     }

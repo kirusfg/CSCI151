@@ -15,20 +15,20 @@
 #include <math.h>
 #include <float.h>
 
-int main (void) {
+int main(void) {
     int counter = 0, longestWord = 0;
     char ch;
 
     do {
         ch = getchar();
 
-        if(ch != ' '){
+        if (ch != ' ') {
             counter++;
         } else {
-            if(counter != 0){
+            if (counter != 0) {
                 printf("%d\n", counter);
             }
-            if(counter > longestWord){
+            if (counter > longestWord) {
                 longestWord = counter;
             }
             counter = 0;

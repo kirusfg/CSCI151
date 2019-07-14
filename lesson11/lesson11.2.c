@@ -17,7 +17,7 @@
 #include <math.h>
 #include <float.h>
 
-int main (void) {
+int main(void) {
     FILE *values, *story;
     FILE *outfile;
 
@@ -33,26 +33,26 @@ int main (void) {
     story = fopen("story.txt", "r");
     outfile = fopen(outfileName, "w");
 
-    if(values == NULL){
+    if (values == NULL) {
         printf("Error opening values.txt\n");
-    } else if(story == NULL){
+    } else if (story == NULL) {
         printf("Error opening story.txt\n");
-    } else if(outfile == NULL){
+    } else if (outfile == NULL) {
         printf("Error opening output.txt\n");
     }
 
-    while(!feof(story)){
+    while (!feof(story)) {
         ch = getc(story);
 
-        if((ch != EOF) && (ch != '$')){
+        if ((ch != EOF) && (ch != '$')) {
             putc(ch, outfile);
         }
 
-        if(ch == '$'){
+        if (ch == '$') {
             fscanf(values, "%s", value);
             printf("%s", value);
             fprintf(outfile, "%s", value);
-        } else if(ch == EOF){
+        } else if (ch == EOF) {
             break;
         } else {
             printf("%c", ch);

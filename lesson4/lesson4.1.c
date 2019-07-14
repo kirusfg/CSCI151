@@ -13,7 +13,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p;
 
     a = 010;

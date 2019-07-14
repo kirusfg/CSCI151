@@ -16,7 +16,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     double a, b, c, x1, x2;
 
     printf("Enter a, b, and c coefficients of the quadratic equation: ");

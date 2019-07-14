@@ -15,7 +15,7 @@
 #include <math.h>
 #include <float.h>
 
-int main(void){
+int main(void) {
     int n, i;
     double x, result;
     result = 1;
@@ -26,7 +26,7 @@ int main(void){
     printf("Enter value for n: ");
     scanf("%i", &n);
 
-    for(i = 1; i <= n; i++){
+    for (i = 1; i <= n; i++) {
         result *= x;
     }
 
