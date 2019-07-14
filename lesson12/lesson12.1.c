@@ -38,7 +38,7 @@ int main (void) {
 }
 
 
-/*  Second solution without using a distincted factorial() function
+/*  Second solution without using a separate factorial() function
 int main(void){
     int i, j, factorial;
     int array[10];
