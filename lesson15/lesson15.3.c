@@ -1,9 +1,13 @@
 /*
  *  lesson15.3.c
  *
- *  In the video clip “Structs Containing Arrays” above, we defined a new struct for pentagons.
- *  Instead of hard coding the initialization, write some code that will read in the necessary
- *  information from a file, and use it to initialize the Pentagon variable shape.
+ *  Create a new BankCustomer structure type, which keeps track of customer ID,
+ *  type of account (‘c’ for checking, ‘s’ for savings, ‘d’ for deposit), and account balance.
+ *  Declare an array of 10 such customers, and read in their data from this file.
+ *  At the end, write out:
+ *   - The average balance for all checking accounts,
+ *   - The average balance for all savings accounts, and
+ *   - The average balance for all deposit accounts.
  *
  *  July 17, 2019
  *
@@ -17,47 +21,61 @@
 #include <time.h>
 
 typedef struct {
-    int r, g, b;
-} Color;
-
-typedef struct {
-    int x, y;
-} Coords;
-
-typedef struct {
-    Color color;
-    Coords point[5];
-} Pentagon;
+    int accountID;
+    char accountType;
+    int accountBalance;
+} BankCustomer;
 
 int main(void) {
+    int i;
     FILE *file;
-    char ch;
-    int i, values[13];
-    Pentagon newPentagon = {};
+    BankCustomer customer[10];
+    int checkingSum = 0,
+        checkingCounter = 0,
+        savingsSum = 0,
+        savingsCounter = 0,
+        depositSum = 0,
+        depositCounter = 0;
+    double checkingAvg = 0,
+           savingsAvg = 0,
+           depositAvg = 0;
 
-    file = fopen("pentagon.txt", "r");
+    file = fopen("bank.data", "r");
 
     if (file == NULL) {
-        printf("Error opening pentagon.txt\n");
+        printf("Error opening bank.data\n");
     }
 
-    for (i = 0; i < 13; i++) {
-        fscanf(file, "%d", &values[i]);
+    for (i = 0; i < 10; i++) {
+        fscanf(file, "%d", &customer[i].accountID);
+        fscanf(file, "%s", &customer[i].accountType);
+        fscanf(file, "%d", &customer[i].accountBalance);
     }
 
-    newPentagon.color = (Color){values[0], values[1], values[2]};
-    newPentagon.point[0] = (Coords){values[3], values[4]};
-    newPentagon.point[1] = (Coords){values[5], values[6]};
-    newPentagon.point[2] = (Coords){values[7], values[8]};
-    newPentagon.point[3] = (Coords){values[9], values[10]};
-    newPentagon.point[4] = (Coords){values[11], values[12]};
+    for (i = 0; i < 10; i++) {
+        printf("%d %c %d\n", customer[i].accountID, customer[i].accountType, customer[i].accountBalance);
+    }
 
-    printf("%d %d %d\n", newPentagon.color.r, newPentagon.color.g, newPentagon.color.b);
-    printf("%d %d\n", newPentagon.point[0].x, newPentagon.point[0].y);
-    printf("%d %d\n", newPentagon.point[1].x, newPentagon.point[1].y);
-    printf("%d %d\n", newPentagon.point[2].x, newPentagon.point[2].y);
-    printf("%d %d\n", newPentagon.point[3].x, newPentagon.point[3].y);
-    printf("%d %d\n", newPentagon.point[4].x, newPentagon.point[4].y);
+    for (i = 0; i < 10; i++) {
+        if (customer[i].accountType == 'c') {
+            checkingSum += customer[i].accountBalance;
+            checkingCounter++;
+        } else if (customer[i].accountType == 's') {
+            savingsSum += customer[i].accountBalance;
+            savingsCounter++;
+        } else {
+            depositSum += customer[i].accountBalance;
+            depositCounter++;
+        }
+    }
+
+    checkingAvg = checkingSum / checkingCounter;
+    savingsAvg = savingsSum / savingsCounter;
+    depositAvg = depositSum / depositCounter;
+
+    printf("Checking accounts average: %g\n", checkingAvg);
+    printf("Savings accounts average: %g\n", savingsAvg);
+    printf("Deposit accounts average: %g\n", depositAvg);
 
     return 0;
 }
