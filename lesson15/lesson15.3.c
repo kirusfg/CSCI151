@@ -1,5 +1,5 @@
 /*
- *  lesson15.2.c
+ *  lesson15.3.c
  *
  *  In the video clip “Structs Containing Arrays” above, we defined a new struct for pentagons.
  *  Instead of hard coding the initialization, write some code that will read in the necessary
