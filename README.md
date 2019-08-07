@@ -21,3 +21,9 @@ To run the program after compiling it, simply use:
 ./programName.out
 ```
 ### Windows
+
+#### Eclipse IDE
+If you are using Eclipse IDE, please add the following line to your code:
+```
+setvbuf(stdout, NULL, _IONBF, 0);
+```
