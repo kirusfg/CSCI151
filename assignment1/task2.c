@@ -10,6 +10,8 @@
 #include <math.h>
 
 int main(void) {
+    setvbuf(stdout, NULL, _IONBF, 0);
+    
     long long unsigned int number, cachedNumber, reverse;
     _Bool palindrome;
 
