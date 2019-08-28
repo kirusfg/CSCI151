@@ -11,11 +11,11 @@
 int main(void) {
     setvbuf(stdout, NULL, _IONBF, 0);
 
-    long long unsigned int number, cachedNumber, reverse;
+    int number, cachedNumber, reverse;
     _Bool palindrome;
 
     //Getting input from user
-    scanf("%llu", &number);
+    scanf("%d", &number);
 
     //Storing entered number to a separate variable to display later
     cachedNumber = number;
@@ -31,7 +31,7 @@ int main(void) {
     }
 
     //Printing out the number and its reverse
-    printf("Number: %lld, reverse: %lld", cachedNumber, reverse);
+    printf("Number: %d, reverse: %d", cachedNumber, reverse);
 
     //Checking if a number is a palindrome
     if (cachedNumber == reverse) {
@@ -41,16 +41,10 @@ int main(void) {
     }
 
     //Printing out whether a number is a palindrome or not
-    switch (palindrome) {
-        case 1:
-            printf(", is a palindrome.");
-            break;
-        case 0:
-            printf(", is not a palindrome.");
-            break;
-        default:
-            printf("Wrong input");
-            break;
+    if (palindrome == 1) {
+        printf(", is a palindrome.");
+    } else {
+        printf(", is not a palindrome.");
     }
 
     return 0;
