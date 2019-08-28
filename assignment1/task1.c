@@ -10,7 +10,7 @@
 
 int main(void) {
     double e;
-    int i, j, k, factorial;
+    int i, k, factorial;
 
     scanf("%d", &k);
 
