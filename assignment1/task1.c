@@ -1,38 +1,31 @@
 /*
  *  task1.c
  *
- *  August 27, 2019
+ *  August 28, 2019
  *
  *
 */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <float.h>
-
-long long int factorial(int number) {
-    if (number == 0) {
-        return 1;
-    } else {
-        return (number * factorial(number - 1));
-    }
-}
 
 int main(void) {
     double e;
-    int i, k;
+    int i, j, k, factorial;
 
-    do {
-        e = 0;
-        scanf("%d", &k);
+    scanf("%d", &k);
 
-        for (i = 0; i <= k; i++) {
-            e += 1.0 / (factorial(i));
+    while (k > 0) {
+        e = 1;
+        factorial = 1;
+
+        for (i = 1; i <= k + 1; i++) {
+            factorial = factorial * i;
+            e += 1.0 / factorial;
         }
 
-        printf("%1.10f\n", e);
-    } while (k > 0);
+        printf("%1.16f\n", e);
+        scanf("%d", &k);
+    }
 
     return 0;
 }
