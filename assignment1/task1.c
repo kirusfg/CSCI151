@@ -9,6 +9,8 @@
 #include <stdio.h>
 
 int main(void) {
+    setvbuf(stdout, NULL, _IONBF, 0);
+    
     double e;
     int i, k, factorial;
 
