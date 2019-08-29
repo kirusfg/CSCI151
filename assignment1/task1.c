@@ -14,6 +14,7 @@ int main(void) {
     double e;
     int i, k, factorial;
 
+    printf("Enter number of terms for e number expansion: ");
     scanf("%d", &k);
 
     //As stated in the task, k should be non-zero positive number: checking
@@ -35,6 +36,7 @@ int main(void) {
         //Printing out the result
         printf("%1.16f\n", e);
         //Asking for a new k value
+        printf("Enter number of terms for e number expansion: ");
         scanf("%d", &k);
     }
 

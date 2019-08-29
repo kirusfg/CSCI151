@@ -15,6 +15,7 @@ int main(void) {
     _Bool palindrome;
 
     //Getting input from user
+    printf("Enter an integer: ");
     scanf("%d", &number);
 
     //Storing entered number to a separate variable to display later

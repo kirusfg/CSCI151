@@ -14,6 +14,7 @@ int main(void) {
     int i, j, k;
 
     //Getting input from user
+    printf("Enter an integer: ");
     scanf("%d", &k);
 
     //Checking whether k is a non-zero, positive number
