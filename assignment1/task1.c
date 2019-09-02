@@ -12,7 +12,8 @@ int main(void) {
     setvbuf(stdout, NULL, _IONBF, 0);
 
     double e;
-    int i, k, factorial;
+    int i, k;
+    long long unsigned int factorial;
 
     printf("Enter number of terms for e number expansion: ");
     scanf("%d", &k);
@@ -28,8 +29,8 @@ int main(void) {
         factorial = 1;
 
         //Evaluating i! and adding 1 / i! to e
-        for (i = 1; i <= k + 1; i++) {
-            factorial = factorial * i;
+        for (i = 1; i <= k; i++) {
+            factorial *= i;
             e += 1.0 / factorial;
         }
 
