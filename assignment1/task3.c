@@ -14,7 +14,7 @@ int main(void) {
     setvbuf(stdout, NULL, _IONBF, 0);
 
     int xDeg, k;
-    int i;
+    int i,sign;
     double xRad, sinX, numerator, denominator;
 
     //Getting values from user
@@ -26,25 +26,25 @@ int main(void) {
     //Converting degrees into radians
     xRad = (xDeg * PI) / 180;
 
-    //Setting first values for numerator and denominator
+    //Setting first values for numerator, denominator, signX, and sign before starting iterations
     numerator = xRad;
     denominator = 1;
+    sign = 1;
+    sinX = 0;
 
     //Evaluating sin(x)
     for (i = 0; i <= k; i++) {
-        //Checking if (-1)^k is positive or negative
-        if (i % 2 == 0) {
-            sinX += numerator / denominator;
-        } else {
-            sinX -= numerator / denominator;
-        }
+        //Adding term i to the sinX
+        sinX += sign * numerator / denominator;
 
         //Increasing num. and den. to use in the next term
         numerator = numerator * xRad * xRad;    //x -> x^3 -> x^5 -> x^7...
-        denominator = denominator * (2 * i + 2) * (2 * i + 3);  //1! -> 3! -> 5! -> 7!...
+        denominator = denominator * (2 * i + 2) * (2 * i + 3);  //1! -> 3! -> 5! -> 7!...x
+        //Changing sign for the next term
+        sign *= -1;
     }
 
-    printf("sin(%d) = %f", xDeg, sinX);
+    printf("sin(%d) = %.20f", xDeg, sinX);
 
     return 0;
 }
