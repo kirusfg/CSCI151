@@ -1,11 +1,3 @@
-/*
- *  task4.c
- *
- *  August 28, 2019
- *
- *
-*/
-
 #include <stdio.h>
 
 int main(void) {
@@ -13,12 +5,10 @@ int main(void) {
 
     int i, j, k;
 
-    //Getting input from user
-    printf("Enter an integer: ");
-    scanf("%d", &k);
+    do {
+        //Asking for a new value of k
+        scanf("%d", &k);
 
-    //Checking whether k is a non-zero, positive number
-    while (k > 0) {
         //Repeating k times with increasing value of i
         for (i = 1; i <= k; i++) {
             //Printing row values from 1 to k
@@ -27,10 +17,7 @@ int main(void) {
             }
             printf("\n");
         }
-
-        //Asking for a new value of k
-        scanf("%d", &k);
-    }
+    } while (k > 0);    //Checking whether k is a non-zero, positive number
 
     return 0;
 }

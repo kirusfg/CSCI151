@@ -1,11 +1,3 @@
-/*
- *  task3.c
- *
- *  August 28, 2019
- *
- *
-*/
-
 #include <stdio.h>
 
 #define PI 3.14159265358979
@@ -13,18 +5,18 @@
 int main(void) {
     setvbuf(stdout, NULL, _IONBF, 0);
 
-    int xDeg, k;
-    int i,sign;
+    int x, k;
+    int i, sign;
     double xRad, sinX, numerator, denominator;
 
     //Getting values from user
     printf("Enter angle value in degrees: ");
-    scanf("%d", &xDeg);
+    scanf("%d", &x);
     printf("Enter number of terms used for the expansion: ");
     scanf("%d", &k);
 
     //Converting degrees into radians
-    xRad = (xDeg * PI) / 180;
+    xRad = (x * PI) / 180;
 
     //Setting first values for numerator, denominator, signX, and sign before starting iterations
     numerator = xRad;
@@ -44,7 +36,7 @@ int main(void) {
         sign *= -1;
     }
 
-    printf("sin(%d) = %.20f", xDeg, sinX);
+    printf("sin(%d) = %.20f", x, sinX);
 
     return 0;
 }
