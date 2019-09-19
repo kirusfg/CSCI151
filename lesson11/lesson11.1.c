@@ -39,8 +39,7 @@ int main(void) {
         printf("Error opening output file %s\n", outfileName);
     }
 
-    while (!feof(infile)) {
-        ch = getc(infile);
+    while ((ch = getc(infile)) != EOF) {
         fprintf(outfile, "%c", ch);
     }
 
