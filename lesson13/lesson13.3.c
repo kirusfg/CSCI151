@@ -17,6 +17,7 @@
 
 int main(void) {
     int i, j, sizeX, sizeY, min = 100, max = 0;
+    int iMin, iMax, jMin, jMax;
 
     //rand() returns pseudo-random numbers. It generates numbers based on a given algorithm.
     //The starting point of that algorithm is always the same, so you'll see the same sequence
@@ -44,16 +45,20 @@ int main(void) {
         for (j = 0; j < sizeY; j++) {
             if (matrix[i][j] < min) {
                 min = matrix[i][j];
+                iMin = i;
+                jMin = j;
             }
             if (matrix[i][j] > max) {
                 max = matrix[i][j];
+                iMax = i;
+                jMax = j;
             }
         }
     }
 
     printf("\n");
-    printf("Min: %d\n", min);
-    printf("Max: %d\n", max);
+    printf("Min at [%d][%d] = %d\n", iMin, jMin, min);
+    printf("Max at [%d][%d] = %d\n", iMax, jMax, max);
 
     return 0;
 }
