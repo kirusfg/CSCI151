@@ -22,7 +22,7 @@ int main(void) {
     do {
         ch = getchar();
 
-        if (ch != ' ') {
+        if (ch != ' ' && ch != '\n') {
             counter++;
         } else {
             if (counter != 0) {
@@ -34,8 +34,6 @@ int main(void) {
             counter = 0;
         }
     } while (ch != '\n');
-
-    printf("%d\n", counter - 1);
 
     printf("The longest word was %d symbols long\n", longestWord);
 
