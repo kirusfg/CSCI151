@@ -41,21 +41,14 @@ int main(void) {
         printf("Error opening output.txt\n");
     }
 
-    while (!feof(story)) {
-        ch = getc(story);
-
-        if ((ch != EOF) && (ch != '$')) {
-            putc(ch, outfile);
-        }
-
+    while ((ch = getc(story)) != EOF) {
         if (ch == '$') {
             fscanf(values, "%s", value);
             printf("%s", value);
             fprintf(outfile, "%s", value);
-        } else if (ch == EOF) {
-            break;
         } else {
-            printf("%c", ch);
+            putc(ch, outfile);
+            printf("%c", ch);  
         }
     }
 
