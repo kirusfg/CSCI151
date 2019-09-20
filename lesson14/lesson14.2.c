@@ -64,7 +64,7 @@ int main(void) {
     printf("First grade: %3.2f\n", newStudent.grade1);
     printf("Second grade: %3.2f\n", newStudent.grade2);
     printf("Third grade: %3.2f\n", newStudent.grade3);
-    printf("First grade: %3.2f\n", newStudent.finalGrade);
+    printf("Final grade: %3.2f\n", newStudent.finalGrade);
 
     return 0;
 }
