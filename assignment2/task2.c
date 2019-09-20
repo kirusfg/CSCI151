@@ -14,28 +14,36 @@ int main(void) {
 
 		if ((ch == '.') || (ch == '!') || (ch == '?')) {
 			sentenceEnd = 1;
+
 			printf("%c", ch);
 			putc(ch, outfile);
 		} else if (sentenceEnd && ((ch >= 97) && (ch <= 122))) {
 			pos = ch - 97;
+
 			printf("%c", alphabet[(26 + pos - key) % 26] - 32);
 			putc(alphabet[(26 + pos - key) % 26] - 32, outfile);
+
 			sentenceEnd = 0;
 		} else if (sentenceEnd && ((ch >= 65) && (ch <= 90))) {
 			pos = ch - 65;
+
 			printf("%c", alphabet[(26 + pos - key) % 26] - 32);
 			putc(alphabet[(26 + pos - key) % 26] - 32, outfile);
+
 			sentenceEnd = 0;
 		} else if (!sentenceEnd && ((ch >= 97) && (ch <= 122))) {
 			pos = ch - 97;
+
 			printf("%c", alphabet[(26 + pos - key) % 26]);
 			putc(alphabet[(26 + pos - key) % 26], outfile);
 		} else if (!sentenceEnd && ((ch >= 65) && (ch <= 90))) {
 			pos = ch - 65;
+
 			printf("%c", alphabet[(26 + pos - key) % 26] - 32);
 			putc(alphabet[(26 + pos - key) % 26] - 32, outfile);
 		} else {
 			printf("%c", ch);
+			
 			if (ch != EOF) {
 				putc(ch, outfile);
 			}
