@@ -48,7 +48,7 @@ int main(void) {
 
     for (i = 0; i < 10; i++) {
         fscanf(file, "%d", &customer[i].accountID);
-        fscanf(file, "%s", &customer[i].accountType);
+        fscanf(file, " %c ", &customer[i].accountType);
         fscanf(file, "%d", &customer[i].accountBalance);
     }
 
