@@ -8,6 +8,8 @@ typedef struct {
 } city;
 
 int main(void) {
+	setvbuf(stdout, NULL, _IONBF, 0);
+	
 	FILE *infile;
 	int a, i, j, n, iMin, jMin;
 	double d, dMin;
@@ -37,8 +39,9 @@ int main(void) {
 	}
 	city cities[n];
 
-	//Reading file for the second time
-	fseek(infile, 0, 0);
+	//Reopening cities.txt
+	fclose(infile);
+	infile = fopen("cities.txt", "r");
 
 	for (i = 0; i < n; i++) {
 		fscanf(infile, "%d", &cities[i].xcoor);
@@ -50,8 +53,8 @@ int main(void) {
 	dMin = 0;
 	for (i = 0; i < n - 1; i++) {
 		for (j = n - 1; j > i; j--) {
-			d = sqrt(pow((cities[i].xcoor - cities[j].xcoor), 2) + pow((cities[i].ycoor - cities[j].ycoor), 2));
-			//printf("\n%g %s %s", d, cities[i].name, cities[j].name);
+			//Euclidian distance
+			d = sqrt((cities[i].xcoor - cities[j].xcoor) * (cities[i].xcoor - cities[j].xcoor) + (cities[i].ycoor - cities[j].ycoor) * (cities[i].ycoor - cities[j].ycoor));
 			if (dMin == 0) {
 				dMin = d;
 				iMin = i;
@@ -65,6 +68,8 @@ int main(void) {
 	}
 
 	printf("Minimum distance: %g, between %s and %s", dMin, cities[iMin].name, cities[jMin].name);
+
+	fclose(infile);
 
 	return 0;
 }
