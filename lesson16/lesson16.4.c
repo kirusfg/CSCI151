@@ -5,7 +5,6 @@ For n=129, for instance, the function returns the value 12, obtained as 1+2+9.
  */
 
 #include <stdio.h>
-#include <math.h>
 
 int sumOfDigits(int n) {
 	if (n <= 0) {
