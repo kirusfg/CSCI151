@@ -10,8 +10,8 @@ int smallest(int size, double array[]) {
 	double min = array[0];
 
 	for (i = 0; i < size; i++) {
+		index = (array[i] < min) ? i : index;
 		min = (array[i] < min) ? array[i] : min;
-		index = (array[i] > max) ? i : index;
 	}
 
 	return index;
