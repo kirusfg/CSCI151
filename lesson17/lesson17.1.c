@@ -11,7 +11,7 @@ int smallest(int size, double array[]) {
 
 	for (i = 0; i < size; i++) {
 		min = (array[i] < min) ? array[i] : min;
-		index = i;
+		index = (array[i] > max) ? i : index;
 	}
 
 	return index;
