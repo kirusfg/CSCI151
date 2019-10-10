@@ -1,0 +1,17 @@
+0.0 London-Kings-Cross*
+3.9 Finsbury-Park*
+19.2 Potters-Bar*
+27.0 Hatfield-(Herts)*
+30.8 Welwyn-Garden-City*
+33.0 Welwyn-North*
+38.3 Knebworth*
+42.5 Stevenage*
+48.1 Hitchin*
+50.4 Letchworth-Garden-City*
+52.6 Baldock*
+56.7 Ashwell-&-Morden*
+58.6 Royston*
+63.4 Meldreth*
+66.1 Shepreth*
+67.2 Foxton*
+76.0 Cambridge*
