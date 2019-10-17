@@ -54,7 +54,6 @@ void printStations(station line[], int stationNumber, int includeNumber) {
 
 double ticketPrice(station line[], int departure, int destination, int ticketClass) {
 	double cost, total, distance;
-	int size;
 
 	//Assigning one ticket cost dependent on the class of the ticket
 	cost = (ticketClass == 1) ? 0.25 : 0.15;
@@ -69,6 +68,7 @@ double ticketPrice(station line[], int departure, int destination, int ticketCla
 }
 
 int main(void) {
+	setvbuf(stdout, NULL, _IONBF, 0);
 	srand(time(NULL));
 
 	int i = 0, numberOfStationsScanned;
@@ -78,14 +78,14 @@ int main(void) {
 	numberOfStationsScanned = readStations("london-cambridge.txt", railwayLine);
 
 	//Testing the implementation
-	for (i = 0; i < 5; i++) {
+	for (i = 0; i < 10; i++) {
 		//Randomizing values using time seeding on line 72
 		destination = rand() % 100 % numberOfStationsScanned;
 		departure = rand() % 100 % numberOfStationsScanned;
 		ticketClass = rand() % 2;
 		//Printing
 		printf("Departure: %2d Destination: %2d Ticket class: %d ", departure, destination, ticketClass);
-		printf("Total cost: %g\n", ticketPrice(railwayLine, destination, departure, ticketClass));
+		printf("Total cost: %.2f\n", ticketPrice(railwayLine, destination, departure, ticketClass));
 	}
 
 	return 0;

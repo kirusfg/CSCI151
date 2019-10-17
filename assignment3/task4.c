@@ -52,7 +52,6 @@ void printStations(station line[], int stationNumber, int includeNumber) {
 
 double ticketPrice(station line[], int departure, int destination, int ticketClass) {
 	double cost, total, distance;
-	int size;
 
 	//Assigning one ticket cost dependent on the class of the ticket
 	cost = (ticketClass == 1) ? 0.25 : 0.15;
@@ -67,6 +66,8 @@ double ticketPrice(station line[], int departure, int destination, int ticketCla
 }
 
 int main(void) {
+	setvbuf(stdout, NULL, _IONBF, 0);
+
 	int i, numberOfStationsScanned;
 	int destination, departure, ticketClass;
 	station railwayLine[100];

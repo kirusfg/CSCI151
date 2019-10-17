@@ -31,6 +31,8 @@ int readStations(char fileName[20], station line[]) {
 }
 
 int main(void) {
+	setvbuf(stdout, NULL, _IONBF, 0);
+	
 	int i = 0, numberOfStationsScanned;
 	station railwayLine[100];
 
