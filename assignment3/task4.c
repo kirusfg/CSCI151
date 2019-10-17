@@ -27,6 +27,8 @@ int readStations(char fileName[20], station line[]) {
 		i++;
 	}
 
+	fclose(inputFile);
+
 	return i;
 }
 

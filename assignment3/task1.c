@@ -27,12 +27,14 @@ int readStations(char fileName[20], station line[]) {
 		i++;
 	}
 
+	fclose(inputFile);
+
 	return i;
 }
 
 int main(void) {
 	setvbuf(stdout, NULL, _IONBF, 0);
-	
+
 	int i = 0, numberOfStationsScanned;
 	station railwayLine[100];
 
