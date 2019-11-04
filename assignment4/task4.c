@@ -72,6 +72,7 @@ int getTopThreeAvgGrade(student* students, int entry_size, int id, int all_ids[]
 	int topThree[3] = {0, 0, 0};
 	int i, average = 0;
 
+	//Fullfilling the topThree array with the student's 3 highest grades
 	for (i = 0; i < entry_size; i++) {
 		if (students[i].ID == id) {
 			if (students[i].grade >= topThree[2]) {
@@ -82,6 +83,7 @@ int getTopThreeAvgGrade(student* students, int entry_size, int id, int all_ids[]
 		}
 	}
 
+	//Returning the average dependent on whether there are less than 3 entries or not
 	if (all_ids[id] == 0) {
 		return 0;
 	} else if (all_ids[id] == 1) {
