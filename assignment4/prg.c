@@ -129,9 +129,10 @@ int main(void) {
 	
 	i = 1;
 	printf("\nID \t Number of grades\n");
-	while (all_ids[i] != 0) {
-		printf("%d \t %d\n", i, all_ids[i]);
-		i++;
+	for (i = 1; i <= 100; i++) {
+		if (all_ids[i] != 0) {
+			printf("%d \t %d\n", i, all_ids[i]);
+		}
 	}
 
 	//Testing the getMaxGrade function
