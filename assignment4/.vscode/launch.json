@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/prg.exe",
+            "program": "${workspaceFolder}/prg.exe",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",

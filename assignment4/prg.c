@@ -58,11 +58,11 @@ student* readStudents(char *fileName, int* entry_size, int all_ids[], int* stude
 	}
 
 	//Counting the number of unique student ids
-	i = 1;
 	*studentSize = 0;
-	while (all_ids[i] != 0) {
-		(*studentSize)++;
-		i++;
+	for (i = 1; i <= 100; i++) {
+		if (all_ids[i] != 0) {
+			(*studentSize)++;
+		}
 	}
 	
 	return students;
@@ -72,7 +72,7 @@ int getMaxGrade(student *students, int from, int to) {
 	if (from == to) {
 		return students[from].grade;	//Base case
 	} else {
-		return getMaxGrade(students, from + 1, to);
+		return (getMaxGrade(students, from + 1, to) > students[from].grade) ? getMaxGrade(students, from + 1, to) : students[from].grade;
 	}
 }
 
@@ -95,16 +95,16 @@ int getTopThreeAvgGrade(student* students, int entry_size, int id, int all_ids[]
 	if (all_ids[id] == 0) {
 		return 0;
 	} else if (all_ids[id] == 1) {
-		return (topThree[0] + topThree[1]+ topThree[2]);
+		return (topThree[0] + topThree[1] + topThree[2]);
 	} else if (all_ids[id] == 2) {
-		return (topThree[0] + topThree[1]+ topThree[2]) / 2;
+		return (topThree[0] + topThree[1] + topThree[2]) / 2;
 	} else {
-		return (topThree[0] + topThree[1]+ topThree[2]) / 3;
+		return (topThree[0] + topThree[1] + topThree[2]) / 3;
 	}
 }
 /*
 void fillAllStudentsAvgGrades(topThreeAvg *averages[], student* students, int entry_size, int all_ids[]) {
-
+	
 }
 */
 int main(void) {
@@ -114,7 +114,7 @@ int main(void) {
 	int *all_ids = (int*)malloc(101 * sizeof(int));
 
 	char *fileName;
-	fileName = "data/students3.txt";
+	fileName = "data/students1.txt";
 
 	student *studentList;
 	studentList = readStudents(fileName, &numberOfEntries, all_ids, &numberOfStudents);
@@ -144,6 +144,10 @@ int main(void) {
 		printf("\nThe top three average for student with id %d is %d", i, getTopThreeAvgGrade(studentList, numberOfEntries, i, all_ids));
 		i++;
 	}
+
+	free(all_ids);
+	free(studentList);
+	free(fileName);
 	
 	return 0;
 }

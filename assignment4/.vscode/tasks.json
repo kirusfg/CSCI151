@@ -9,7 +9,7 @@
                 "-g",
                 "${workspaceFolder}/prg.c",
                 "-o",
-                "${workspaceFolder}/build/prg.exe"
+                "${workspaceFolder}/prg.exe"
             ],
             "options": {
                 "cwd": "C:/mingw/mingw32/bin"
