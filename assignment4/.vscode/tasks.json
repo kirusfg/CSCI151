@@ -7,7 +7,7 @@
             "command": "C:/mingw/mingw32/bin/gcc.exe",
             "args": [
                 "-g",
-                "${workspaceFolder}/src/prg.c",
+                "${workspaceFolder}/prg.c",
                 "-o",
                 "${workspaceFolder}/build/prg.exe"
             ],
