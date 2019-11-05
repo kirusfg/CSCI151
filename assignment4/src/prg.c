@@ -114,7 +114,7 @@ int main(void) {
 	int *all_ids = (int*)malloc(101 * sizeof(int));
 
 	char *fileName;
-	fileName = "students3.txt";
+	fileName = "data/students3.txt";
 
 	student *studentList;
 	studentList = readStudents(fileName, &numberOfEntries, all_ids, &numberOfStudents);
