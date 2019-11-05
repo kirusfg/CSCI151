@@ -54,7 +54,15 @@ student* readStudents(char *fileName, int* entry_size, int all_ids[], int* stude
 
 	//Counting how many unique students are there in the file with the number of their grades associated
 	for (i = 0; i < *entry_size; i++) {
-		all_ids[(int)(students[i].ID)]++; 
+		all_ids[(int)(students[i].ID)]++;
+	}
+
+	//Counting the number of unique student ids
+	i = 1;
+	*studentSize = 0;
+	while (all_ids[i] != 0) {
+		(*studentSize)++;
+		i++;
 	}
 	
 	return students;
@@ -68,6 +76,37 @@ int getMaxGrade(student *students, int from, int to) {
 	}
 }
 
+int getTopThreeAvgGrade(student* students, int entry_size, int id, int all_ids[]) {
+	int topThree[3] = {0, 0, 0};
+	int i, average = 0;
+
+	//Fullfilling the topThree array with the student's 3 highest grades
+	for (i = 0; i < entry_size; i++) {
+		if (students[i].ID == id) {
+			if (students[i].grade >= topThree[2]) {
+				topThree[0] = topThree[1];
+				topThree[1] = topThree[2];
+				topThree[2] = students[i].grade;
+			}
+		}
+	}
+
+	//Returning the average dependent on whether there are less than 3 entries or not
+	if (all_ids[id] == 0) {
+		return 0;
+	} else if (all_ids[id] == 1) {
+		return (topThree[0] + topThree[1]+ topThree[2]);
+	} else if (all_ids[id] == 2) {
+		return (topThree[0] + topThree[1]+ topThree[2]) / 2;
+	} else {
+		return (topThree[0] + topThree[1]+ topThree[2]) / 3;
+	}
+}
+/*
+void fillAllStudentsAvgGrades(topThreeAvg *averages[], student* students, int entry_size, int all_ids[]) {
+
+}
+*/
 int main(void) {
 	setvbuf(stdout, NULL, _IONBF, 0);
 
@@ -97,6 +136,14 @@ int main(void) {
 
 	//Testing the getMaxGrade function
 	printf("\nMaximum grade is %d", getMaxGrade(studentList, 0, numberOfEntries - 1));
+	
+	//Testing the getTopThreeAvgGrade function
+	i = 1;
+	printf("\n");
+	while (all_ids[i] != 0) {
+		printf("\nThe top three average for student with id %d is %d", i, getTopThreeAvgGrade(studentList, numberOfEntries, i, all_ids));
+		i++;
+	}
 	
 	return 0;
 }
