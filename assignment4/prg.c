@@ -27,6 +27,11 @@ student* readStudents(char *fileName, int* entry_size, int all_ids[], int* stude
 	//Scanning the number of entries
 	fscanf(file, "%d", entry_size);
 
+	if (*entry_size == 0) {
+		printf("The file is empty");
+		exit(-1);
+	}
+
 	//Allocating memory in the heap for an array of type student big enough to contain "entry_size" number of elements
 	student *students = (student*)malloc(*entry_size * sizeof(student));
 
@@ -43,7 +48,6 @@ student* readStudents(char *fileName, int* entry_size, int all_ids[], int* stude
 		fscanf(file, "%s", students[i].secondName);
 		fscanf(file, "%d", &students[i].ID);
 		fscanf(file, "%d", &students[i].grade);
-		//printf("Success %d\n", i);
 		i++;
 	}
 
@@ -87,6 +91,10 @@ int getTopThreeAvgGrade(student* students, int entry_size, int id, int all_ids[]
 				topThree[0] = topThree[1];
 				topThree[1] = topThree[2];
 				topThree[2] = students[i].grade;
+			} else if (students[i].grade >= topThree[1]) {
+				topThree[1] = students[i].grade;
+			} else if (students[i].grade >= topThree[0]) {
+				topThree[0] = students[i].grade;
 			}
 		}
 	}
@@ -102,23 +110,42 @@ int getTopThreeAvgGrade(student* students, int entry_size, int id, int all_ids[]
 }
 
 void fillAllStudentsAvgGrades(topThreeAvg *averages[], student* students, int entry_size, int all_ids[]) {
-	int idCounter = 0;
-	int i = 1;
-	int n = entry_size;
-	int *ids = all_ids;
+	int i, idCounter = 0;
+
 	for (i = 1; i <= 100; i++) {
 		if (all_ids[i] != 0) {
 			averages[idCounter]->ID = i;
-			averages[idCounter]->avgGrade = getTopThreeAvgGrade(students, n, i, ids);
+			averages[idCounter]->avgGrade = getTopThreeAvgGrade(students, entry_size, i, all_ids);
 			idCounter++;
 		}
 	}
 }
-/*
-void printAllAverages(topThreeAvg* averages[], int studentSize, student* students, int entry size, int all ids[]) {
 
+void printAllAverages(topThreeAvg* averages[], int studentSize, student* students, int entry_size, int all_ids[]) {
+	printf("\nFirst \tLast \tID \tAvg\n");
+
+	int uniqueIDCounter = 0;
+	for (int i = 1; i <= 100; i++) {
+		if (all_ids[i] != 0) {
+			for (int j = 0; j < entry_size; j++) {
+				if (students[j].ID == i) {
+					printf("%s\t", students[j].firstName);
+					break;
+				}
+			}
+			for (int j = 0; j < entry_size; j++) {
+				if (students[j].ID == i) {
+					printf("%s\t", students[j].secondName);
+					break;
+				}
+			}
+			printf("%d\t", i);
+			printf("%d\n", averages[uniqueIDCounter]->avgGrade);
+			uniqueIDCounter++;
+		}
+	}
 }
-*/
+
 int main(void) {
 	setvbuf(stdout, NULL, _IONBF, 0);
 
@@ -126,41 +153,34 @@ int main(void) {
 	int *all_ids = (int*)malloc(101 * sizeof(int));
 
 	char *fileName;
-	fileName = "data/students1.txt";
+	fileName = "data/students3.txt";
 
 	student *studentList;
-	studentList = readStudents(fileName, &numberOfEntries, all_ids, &numberOfStudents);
-
-	topThreeAvg *averages[numberOfStudents];
-	for (i = 0; i < numberOfStudents; i++) {
-		averages[i] = (topThreeAvg*)malloc(sizeof(topThreeAvg));
-	}
 	
 	//Testing the readStudents() function
+	studentList = readStudents(fileName, &numberOfEntries, all_ids, &numberOfStudents);
 	for (i = 0; i < numberOfEntries; i++) {
 		printf("%s ", studentList[i].firstName);
 		printf("%s ", studentList[i].secondName);
 		printf("%d ", studentList[i].ID);
 		printf("%d\n", studentList[i].grade);
 	}
-	
-	i = 1;
-	printf("\nID \t Number of grades\n");
-	for (i = 1; i <= 100; i++) {
-		if (all_ids[i] != 0) {
-			printf("%d \t %d\n", i, all_ids[i]);
-		}
-	}
 
 	//Testing the getMaxGrade() function
 	printf("\nMaximum grade is %d", getMaxGrade(studentList, 0, numberOfEntries - 1));
 	
 	//Testing the getTopThreeAvgGrade() function
-	i = 1;
 	printf("\n");
-	while (all_ids[i] != 0) {
-		printf("\nThe top three average for student with id %d is %d", i, getTopThreeAvgGrade(studentList, numberOfEntries, i, all_ids));
-		i++;
+	for (i = 1; i <= 100; i++) {
+		if (all_ids[i] != 0) {
+			printf("\nThe top three average for student with id %d is %d", i, getTopThreeAvgGrade(studentList, numberOfEntries, i, all_ids));
+		}
+	}
+
+	//Allocating enough memory for each pointer in the array
+	topThreeAvg *averages[numberOfStudents];
+	for (i = 0; i < numberOfStudents; i++) {
+		averages[i] = (topThreeAvg*)malloc(sizeof(topThreeAvg));
 	}
 
 	//Testing the fillAllStudentsAvgGrades() function
@@ -171,11 +191,13 @@ int main(void) {
 	}
 
 	//Testing the printAllAverages() function
+	printf("\n");
+	printAllAverages(averages, numberOfStudents, studentList, numberOfEntries, all_ids);
 
 	//Freeing up the memory
-	free(all_ids);
-	free(studentList);
 	free(fileName);
+	free(studentList);
+	free(all_ids);
 	for (i = 0; i < numberOfStudents; i++) {
 		free(averages[i]);
 	}
