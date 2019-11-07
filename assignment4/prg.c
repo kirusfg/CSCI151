@@ -84,8 +84,7 @@ int getMaxGrade(student *students, int from, int to) {
 }
 
 int getTopThreeAvgGrade(student* students, int entry_size, int id, int all_ids[]) {
-	int topThree[3] = {0, 0, 0};
-	int i, average = 0;
+	int i, topThree[3] = {0, 0, 0};
 
 	//Fullfilling the topThree array with the student's 3 highest grades
 	for (i = 0; i < entry_size; i++) {
