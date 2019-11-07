@@ -21,7 +21,8 @@ student* readStudents(char *fileName, int* entry_size, int all_ids[], int* stude
 	FILE *file = fopen(fileName, "r");
 
 	if (file == NULL) {
-		printf("Error opening the file\n");
+		printf("Error opening the file");
+		exit(-1);
 	}
 	
 	//Scanning the number of entries
