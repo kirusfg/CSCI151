@@ -155,8 +155,11 @@ int main(void) {
 	int i, numberOfEntries, numberOfStudents;
 	int *all_ids = (int*)malloc(101 * sizeof(int));
 
-	char *fileName;
-	fileName = "data/students1.txt";
+	//Allocating memory of 100 bytes for the file name, receiving input from the user
+	char *fileName = (char*)malloc(100 * sizeof(char));
+	printf("Enter the file name: ");
+	scanf(" %s", fileName);
+	printf("\n");
 
 	student *studentList;
 	
