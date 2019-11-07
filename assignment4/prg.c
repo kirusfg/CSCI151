@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 typedef struct {
 	char *firstName;
@@ -16,6 +15,7 @@ typedef struct {
 
 student* readStudents(char *fileName, int* entry_size, int all_ids[], int* studentSize) {
 	int i;
+	char ch;
 
 	//Working with the file
 	FILE *file = fopen(fileName, "r");
@@ -23,11 +23,12 @@ student* readStudents(char *fileName, int* entry_size, int all_ids[], int* stude
 	if (file == NULL) {
 		printf("Error opening the file\n");
 	}
-
+	
 	//Scanning the number of entries
 	fscanf(file, "%d", entry_size);
 
-	if (*entry_size == 0) {
+	//Checking that the file is not empty	
+	if (*entry_size == 0 || (ch = getc(file)) == EOF) {
 		printf("The file is empty");
 		exit(-1);
 	}
@@ -68,6 +69,8 @@ student* readStudents(char *fileName, int* entry_size, int all_ids[], int* stude
 			(*studentSize)++;
 		}
 	}
+
+	fclose(file);
 	
 	return students;
 }
@@ -153,7 +156,7 @@ int main(void) {
 	int *all_ids = (int*)malloc(101 * sizeof(int));
 
 	char *fileName;
-	fileName = "data/students3.txt";
+	fileName = "data/students1.txt";
 
 	student *studentList;
 	
