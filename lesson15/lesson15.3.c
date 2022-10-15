@@ -69,9 +69,9 @@ int main(void) {
         }
     }
 
-    checkingAvg = checkingSum / checkingCounter;
-    savingsAvg = savingsSum / savingsCounter;
-    depositAvg = depositSum / depositCounter;
+    checkingAvg = (double)checkingSum / checkingCounter;
+    savingsAvg = (double)savingsSum / savingsCounter;
+    depositAvg = (double)depositSum / depositCounter;
 
     printf("Checking accounts average: %g\n", checkingAvg);
     printf("Savings accounts average: %g\n", savingsAvg);
