@@ -1,5 +1,5 @@
-# NU SST CSCI 151 Exercises
-This repository stores solutions to most of the CSCI 151 course exercises. ![Solving](https://img.shields.io/badge/solving-done-green)
+# NU SST CSCI 151 Exercises ![Solving](https://img.shields.io/badge/solving-done-green)
+This repository stores solutions to most of the CSCI 151 course exercises.
 
 ## Downloading this repository
 This can be done in several ways:
